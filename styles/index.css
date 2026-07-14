@@ -1,10 +1,540 @@
-/* 
+/*
     Colors:
     White: #FFFFFF
     Gold: #F1C87A
     Red: #220A09
 */
 
+@font-face {
+    font-family: "Heroic Condensed";
+    src: url("./Fonts/Heroic/HeroicCondensed%20Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Heroic Condensed";
+    src: url("./Fonts/Heroic/HeroicCondensed%20Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Heroic Condensed";
+    src: url("./Fonts/Heroic/HeroicCondensed%20Heavy.otf") format("opentype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Heroic Condensed";
+    src: url("./Fonts/Heroic/HeroicCondensed%20Black.otf") format("opentype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Marvin Visions";
+    src: url("./Fonts/MarvinVisions-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("./Fonts/Inter/Inter-VariableFont_opsz%2Cwght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --color-white: #ffffff;
+    --color-gold: #f1c87a;
+    --color-red: #220a09;
+    --font-display: "Heroic Condensed", Impact, "Arial Narrow", sans-serif;
+    --font-display-alt: "Marvin Visions", "Heroic Condensed", Impact, sans-serif;
+    --font-body: "Inter", Helvetica, Arial, sans-serif;
+    --page-max: 20vw;
+    --form-max: 26rem;
+    --content-pad: clamp(1.25rem, 5vw, 2.5rem);
+    --band-width: 180vw;
+    --band-aspect-w: 1920;
+    --band-aspect-h: 1080;
+    --band-height: calc(var(--band-width) * var(--band-aspect-h) / var(--band-aspect-w));
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+}
+
 body {
-    background-color: #000;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--color-white);
+    font-family: var(--font-body);
+    background-color: #0a0502;
+    background-image: url("../img/Smoke.jpg");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.page {
+    position: relative;
+    z-index: 1;
+    width: min(100%, var(--page-max));
+    margin: 0 auto;
+    padding-top: 120px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.gold {
+    color: var(--color-gold);
+}
+
+/* --- Logos --- */
+
+.logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: clamp(1rem, 3vw, 1.75rem);
+}
+
+.logo--jacksons {
+    width: min(100%, 34rem);
+}
+
+.logo--sister {
+    width: min(92%, 24rem);
+}
+
+/* --- Tagline & CTA --- */
+
+.tagline {
+    margin: 0 0 clamp(1.5rem, 4vw, 2.25rem);
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(0.7rem, 2.1vw, 0.95rem);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+.tagline__genres {
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.early-access {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(0.8rem, 2.4vw, 1.05rem);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.caret {
+    width: clamp(0.85rem, 2.2vw, 1.1rem);
+    height: auto;
+    margin: 0.45rem auto clamp(1.75rem, 4.5vw, 2.75rem);
+}
+
+/* --- Event --- */
+
+.event {
+    margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.event__title {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(1.85rem, 7vw, 3rem);
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    line-height: 0.95;
+}
+
+.event__the {
+    color: var(--color-white);
+}
+
+.event__date {
+    margin: 0 0 0.2rem;
+    color: var(--color-gold);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.05rem, 3.6vw, 1.5rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.event__venue {
+    margin: 0;
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.05rem, 3.6vw, 1.5rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* --- Form --- */
+
+.signup {
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.form {
+    width: min(100%, var(--form-max));
+    margin: 0 auto;
+    text-align: left;
+}
+
+.field {
+    margin-bottom: 1.35rem;
+}
+
+.field__control {
+    position: relative;
+}
+
+.field__label {
+    position: absolute;
+    left: 0;
+    top: auto;
+    bottom: 0.45rem;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--color-white);
+    pointer-events: none;
+    transform-origin: left bottom;
+    transition:
+        top 0.2s ease,
+        bottom 0.2s ease,
+        font-size 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.field__input {
+    display: block;
+    width: 100%;
+    padding: 1.25rem 0 0.45rem;
+    border: 0;
+    border-bottom: 1px solid var(--color-white);
+    border-radius: 0;
+    background: transparent;
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.2;
+    outline: none;
+    appearance: none;
+}
+
+.field__input:focus {
+    border-bottom-color: var(--color-gold);
+}
+
+.field__control:focus-within .field__label,
+.field__input:not(:placeholder-shown) + .field__label,
+.field__input.is-focused + .field__label,
+.field__input.is-filled + .field__label {
+    top: 0;
+    bottom: auto;
+    font-size: 0.7rem;
+    opacity: 0.9;
+}
+
+.field__input.field__input--invalid {
+    border-bottom-color: #e57373;
+}
+
+.field__error {
+    margin: 0.35rem 0 0;
+    color: #e57373;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    line-height: 1.3;
+}
+
+.privacy {
+    margin: 0.25rem 0 1.1rem;
+    font-family: var(--font-body);
+    font-size: clamp(0.58rem, 1.5vw, 0.68rem);
+    font-weight: 300;
+    line-height: 1.45;
+    color: var(--color-white);
+    text-align: left;
+}
+
+.privacy__link {
+    color: var(--color-white);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.privacy__link:hover,
+.privacy__link:focus-visible {
+    color: var(--color-gold);
+}
+
+.consent {
+    margin-bottom: 1.5rem;
+}
+
+.consent__label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    cursor: pointer;
+}
+
+.consent__input {
+    flex-shrink: 0;
+    width: 0.95rem;
+    height: 0.95rem;
+    margin: 0.15rem 0 0;
+    accent-color: var(--color-gold);
+    cursor: pointer;
+}
+
+.consent__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.consent__text,
+.consent__note {
+    font-family: var(--font-body);
+    font-size: clamp(0.58rem, 1.5vw, 0.68rem);
+    font-weight: 300;
+    line-height: 1.45;
+    color: var(--color-white);
+}
+
+.consent__note {
+    opacity: 0.95;
+}
+
+.submit {
+    display: block;
+    width: 100%;
+    padding: 0.95rem 1.25rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--color-gold);
+    color: var(--color-red);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1rem, 2.8vw, 1.2rem);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.submit:hover {
+    filter: brightness(1.05);
+}
+
+.submit:active {
+    transform: scale(0.99);
+}
+
+.submit:focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 3px;
+}
+
+.success {
+    margin: 0 auto;
+    max-width: var(--form-max);
+    padding: 1.5rem 0.5rem;
+    color: var(--color-gold);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1rem, 3vw, 1.35rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.35;
+}
+
+.success[hidden],
+.form[hidden],
+.field__error[hidden] {
+    display: none;
+}
+
+/* --- Sale dates --- */
+
+.sales {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto clamp(1.25rem, 3.5vw, 2rem);
+    width: min(100%, 28rem);
+    border-top: 1px solid var(--color-gold);
+    border-bottom: 1px solid var(--color-gold);
+}
+
+.sales__block {
+    padding: clamp(0.85rem, 2.4vw, 1.1rem) 0.5rem;
+}
+
+.sales__block + .sales__block {
+    border-top: 1px solid var(--color-gold);
+}
+
+.sales__label {
+    margin: 0 0 0.3rem;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(0.62rem, 1.9vw, 0.78rem);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.sales__label--white {
+    color: var(--color-white);
+}
+
+.sales__label--gold {
+    color: var(--color-gold);
+}
+
+.sales__datetime {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.05rem, 3.5vw, 1.5rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.15;
+}
+
+.sales__datetime--gold {
+    color: var(--color-gold);
+}
+
+.sales__datetime--white {
+    color: var(--color-white);
+}
+
+/* --- Footer band --- */
+/* Outside .page: 140vw wide, centered → 20% bleed each side of the viewport */
+
+.band {
+    position: relative;
+    z-index: 0;
+    width: var(--band-width);
+    max-width: none;
+    margin-top: calc(var(--band-height) * -0.25);
+    margin-right: 0;
+    margin-left: -40vw;
+    height: var(--band-height);
+    overflow: hidden;
+    
+}
+
+.band picture,
+.band__photo {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    display: block;
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .page {
+        padding-top: 1rem;
+    }
+
+    .logos {
+        gap: 0.35rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .logo--jacksons {
+        width: min(55vw, 22rem);
+    }
+
+    .logo--sister {
+        width: min(42vw, 15rem);
+    }
+
+    .tagline,
+    .early-access {
+        font-size: clamp(0.65rem, 2vw, 0.9rem);
+    }
+
+    .event__title {
+        font-size: clamp(1.2rem, 4vw, 1.85rem);
+    }
+
+    .caret {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .logo--jacksons {
+        width: 100%;
+    }
+
+    .logo--sister {
+        width: 96%;
+    }
+
+    .form {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .page {
+        --page-max: 90vw;
+    }
+
+    /* Desktop.png 1920×1461 */
+    :root {
+        --band-aspect-w: 1920;
+        --band-aspect-h: 1461;
+    }
+
+    .logo--jacksons {
+        width: min(100%, 36rem);
+    }
+
+    .logo--sister {
+        width: min(90%, 26rem);
+    }
 }
