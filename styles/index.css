@@ -63,7 +63,7 @@
     --page-max: 20vw;
     --form-max: 26rem;
     --content-pad: clamp(1.25rem, 5vw, 2.5rem);
-    --band-width: 180vw;
+    --band-width: min(3455px, 180vw);
     --band-aspect-w: 1920;
     --band-aspect-h: 1080;
     --band-height: calc(var(--band-width) * var(--band-aspect-h) / var(--band-aspect-w));
@@ -450,19 +450,19 @@ img {
 }
 
 /* --- Footer band --- */
-/* Outside .page: 140vw wide, centered → 20% bleed each side of the viewport */
+/* Outside .page: 140vw wide; container ~30% shorter, image full-size + clipped */
 
 .band {
     position: relative;
     z-index: 0;
     width: var(--band-width);
     max-width: none;
+    height: calc(var(--band-height) * 0.75);
     margin-top: calc(var(--band-height) * -0.25);
     margin-right: 0;
-    margin-left: -40vw;
-    height: var(--band-height);
+    /* Center on the viewport for any --band-width */
+    margin-left: calc(50vw - (var(--band-width) / 2));
     overflow: hidden;
-    
 }
 
 .band picture,
