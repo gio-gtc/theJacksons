@@ -129,7 +129,7 @@ p {
 ******/
 .hero {
     min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 100svh;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -209,8 +209,9 @@ p {
     --- Info Section --- 
 ******/
 .info {
-    height: 100vh;
-    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100svh;
+    height: 100%;
     display: block;
     position: relative;
     flex-direction: column;
@@ -572,6 +573,10 @@ p {
     /****** Info Section ******/
     .info {
         display: block;
+    }
+
+    .event {
+
     }
 
     .event__title {
