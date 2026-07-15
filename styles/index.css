@@ -128,8 +128,9 @@ p {
     --- Hero --- 
 ******/
 .hero {
-    height: 100vh;
-    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -519,12 +520,7 @@ p {
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
-    .page {
-        padding-top: 1rem;
-    }
-
     .logos {
-        gap: 0.35rem;
         margin-bottom: 0.65rem;
     }
 
@@ -536,17 +532,12 @@ p {
         width: min(42vw, 15rem);
     }
 
-    .tagline,
-    .early-access {
-        font-size: clamp(0.65rem, 2vw, 0.9rem);
-    }
-
-    .event__title {
-        font-size: clamp(1.2rem, 4vw, 1.85rem);
-    }
-
     .caret {
         margin-bottom: 1rem;
+    }
+
+    .band {
+        margin-top: calc(var(--band-height) * 0.45);
     }
 }
 
