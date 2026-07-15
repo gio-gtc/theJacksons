@@ -26,114 +26,118 @@
             <p class="tagline">
                 THE ULTIMATE <span class="gold tagline__genres">MOTOWN</span>, <span class="gold tagline__genres">SOUL</span> &amp; <span class="gold tagline__genres">DISCO</span> CELEBRATION
             </p>
-            
-            <p class="early-access">SIGN UP NOW FOR EARLY ACCESS TO TICKETS</p>
-            <img
-            class="caret"
-            src="./img/Arrow.svg"
-            alt=""
-            aria-hidden="true"
-            >
-        </section>
 
-        <section class="event" aria-label="Event details">
-            <h1 class="event__title">
-                <span class="event__the">THE</span>
-                <span class="gold"> ONLY IRISH </span>
-                <span class="event__the">SHOW</span>
-            </h1>
-            <p class="event__date">SUNDAY 15 NOVEMBER 2026</p>
-            <p class="event__venue">3ARENA, DUBLIN</p>
-        </section>
-
-        <section class="signup" aria-label="Presale signup">
-            <form class="form" id="signup-form" novalidate>
-                <div class="field">
-                    <div class="field__control">
-                        <input
-                            class="field__input"
-                            type="text"
-                            id="first-name"
-                            name="firstName"
-                            autocomplete="given-name"
-                            placeholder=" "
-                            required
-                        >
-                        <label class="field__label" for="first-name">First Name</label>
-                    </div>
-                    <p class="field__error" id="first-name-error" hidden></p>
-                </div>
-
-                <div class="field">
-                    <div class="field__control">
-                        <input
-                            class="field__input"
-                            type="text"
-                            id="last-name"
-                            name="lastName"
-                            autocomplete="family-name"
-                            placeholder=" "
-                            required
-                        >
-                        <label class="field__label" for="last-name">Last Name</label>
-                    </div>
-                    <p class="field__error" id="last-name-error" hidden></p>
-                </div>
-
-                <div class="field">
-                    <div class="field__control">
-                        <input
-                            class="field__input"
-                            type="email"
-                            id="email"
-                            name="email"
-                            autocomplete="email"
-                            placeholder=" "
-                            required
-                        >
-                        <label class="field__label" for="email">Email</label>
-                    </div>
-                    <p class="field__error" id="email-error" hidden></p>
-                </div>
-
-                <p class="privacy">
-                    By registering, you'll receive emails relating to this presale, including confirmation, access details, ticket reminders and important event information. View our 
-                    <a class="privacy__link" href="#">Privacy Policy</a>.
-                </p>
-
-                <div class="consent">
-                    <label class="consent__label">
-                        <input
-                            class="consent__input"
-                            type="checkbox"
-                            id="updates"
-                            name="updates"
-                            required
-                        >
-                        <span class="consent__body">
-                            <span class="consent__text">I'd like to receive updates about this event, including ticket reminders and event updates.</span>
-                            <span class="consent__note">You can unsubscribe from marketing emails at any time using the link in any email.</span>
-                        </span>
-                    </label>
-                    <p class="field__error" id="updates-error" hidden></p>
-                </div>
-
-                <button class="submit" type="submit">SIGN UP NOW</button>
-            </form>
-
-            <p class="success" id="signup-success" hidden>
-                Thanks — you're signed up for early access.
-            </p>
-        </section>
-
-        <section class="sales" aria-label="Ticket sale dates">
-            <div class="sales__block">
-                <p class="sales__label sales__label--white">EXCLUSIVE ARTIST PRESALE</p>
-                <p class="sales__datetime sales__datetime--gold">THURSDAY 23 JULY | 10:00AM</p>
+            <div class="early-access-container">
+                <p class="early-access">SIGN UP NOW FOR EARLY ACCESS TO TICKETS</p>
+                <img
+                    class="caret"
+                    src="./img/Arrow.svg"
+                    alt=""
+                    aria-hidden="true"
+                >
             </div>
-            <div class="sales__block">
-                <p class="sales__label sales__label--gold">GENERAL PUBLIC ON SALE</p>
-                <p class="sales__datetime sales__datetime--white">FRIDAY 24 JULY | 10:00AM</p>
+        </section>
+
+        <section class="info" aria-label="Event Information, presale, and signup">
+            <div class="event" aria-label="Event details">
+                <h1 class="event__title">
+                    <span class="event__the">THE</span>
+                    <span class="gold"> ONLY IRISH </span>
+                    <span class="event__the">SHOW</span>
+                </h1>
+                <p class="event__date">SUNDAY 15 NOVEMBER 2026</p>
+                <p class="event__venue">3ARENA, DUBLIN</p>
+            </div>
+
+            <div class="signup" aria-label="Presale signup">
+                <form class="form" id="signup-form" novalidate>
+                    <div class="field">
+                        <div class="field__control">
+                            <input
+                                class="field__input"
+                                type="text"
+                                id="first-name"
+                                name="firstName"
+                                autocomplete="given-name"
+                                placeholder=" "
+                                required
+                            >
+                            <label class="field__label" for="first-name">First Name</label>
+                        </div>
+                        <p class="field__error" id="first-name-error" hidden></p>
+                    </div>
+
+                    <div class="field">
+                        <div class="field__control">
+                            <input
+                                class="field__input"
+                                type="text"
+                                id="last-name"
+                                name="lastName"
+                                autocomplete="family-name"
+                                placeholder=" "
+                                required
+                            >
+                            <label class="field__label" for="last-name">Last Name</label>
+                        </div>
+                        <p class="field__error" id="last-name-error" hidden></p>
+                    </div>
+
+                    <div class="field">
+                        <div class="field__control">
+                            <input
+                                class="field__input"
+                                type="email"
+                                id="email"
+                                name="email"
+                                autocomplete="email"
+                                placeholder=" "
+                                required
+                            >
+                            <label class="field__label" for="email">Email</label>
+                        </div>
+                        <p class="field__error" id="email-error" hidden></p>
+                    </div>
+
+                    <p class="privacy">
+                        By registering, you'll receive emails relating to this presale, including confirmation, access details, ticket reminders and important event information. View our 
+                        <a class="privacy__link" href="#">Privacy Policy</a>.
+                    </p>
+
+                    <div class="consent">
+                        <label class="consent__label">
+                            <input
+                                class="consent__input"
+                                type="checkbox"
+                                id="updates"
+                                name="updates"
+                                required
+                            >
+                            <span class="consent__body">
+                                <span class="consent__text">I'd like to receive updates about this event, including ticket reminders and event updates.</span>
+                                <span class="consent__note">You can unsubscribe from marketing emails at any time using the link in any email.</span>
+                            </span>
+                        </label>
+                        <p class="field__error" id="updates-error" hidden></p>
+                    </div>
+
+                    <button class="submit" type="submit">SIGN UP NOW</button>
+                </form>
+
+                <p class="success" id="signup-success" hidden>
+                    Thanks — you're signed up for early access.
+                </p>
+            </div>
+
+            <div class="sales" aria-label="Ticket sale dates">
+                <div class="sales__block">
+                    <p class="sales__label sales__label--white">EXCLUSIVE ARTIST PRESALE</p>
+                    <p class="sales__datetime sales__datetime--gold">THURSDAY 23 JULY | 10:00AM</p>
+                </div>
+                <div class="sales__block">
+                    <p class="sales__label sales__label--gold">GENERAL PUBLIC ON SALE</p>
+                    <p class="sales__datetime sales__datetime--white">FRIDAY 24 JULY | 10:00AM</p>
+                </div>
             </div>
         </section>
 
