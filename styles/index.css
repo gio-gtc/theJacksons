@@ -131,7 +131,8 @@ p {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: clamp(100px, 2vw, 150px);
     margin-bottom: 150px;
     position: relative;
 }
@@ -172,9 +173,18 @@ p {
     font-family: var(--font-display-alt)
 }
 
+.event__title--mobile {
+    font-family: var(--font-display-alt);
+    font-weight: 900;
+    font-size: clamp(4rem, 10vw, 6.25rem);
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+    display: none;
+}
+
 .early-access-container {
     position: absolute;
-    bottom: 40px;
+    bottom: 100px;
     left: 0;
     right: 0;
 }
@@ -553,6 +563,11 @@ p {
     .tagline {
         letter-spacing: 0.05em;
     }
+
+    .event__title--mobile {
+        display: block;
+        line-height: .9;
+    }
     
     .early-access {
         letter-spacing: 0.05em;
@@ -569,7 +584,7 @@ p {
     }
 
     .event__title {
-        line-height: .9;
+        display: none;
     }
 
     .event__date {
