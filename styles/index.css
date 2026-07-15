@@ -129,6 +129,7 @@ p {
 ******/
 .hero {
     height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -184,7 +185,7 @@ p {
 
 .early-access-container {
     position: absolute;
-    bottom: clamp(100px, 5vw, 200px);
+    bottom: clamp(40px, 5vw, 100px);
     left: 0;
     right: 0;
 }
@@ -210,6 +211,7 @@ p {
 ******/
 .info {
     height: 100vh;
+    height: 100dvh;
     display: flex;
     position: relative;
     flex-direction: column;
