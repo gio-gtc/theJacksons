@@ -61,7 +61,7 @@
     --font-display-alt: "Marvin Visions", "Heroic Condensed", Impact, sans-serif;
     --font-body: "Inter", Helvetica, Arial, sans-serif;
     --page-max: 20vw;
-    --form-max: 26rem;
+    --form-max: 785px;
     --content-pad: clamp(1.25rem, 5vw, 2.5rem);
     --band-width: min(3455px, 180vw);
     --band-aspect-w: 1920;
@@ -86,7 +86,7 @@ body {
     overflow-x: hidden;
     color: var(--color-white);
     font-family: var(--font-body);
-    background-color: #0a0502;
+    background-color: var(--color-red);
     background-image: url("../img/Smoke.jpg");
     background-position: center top;
     background-size: cover;
@@ -98,6 +98,10 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+p {
+    margin: 0;
 }
 
 .page {
@@ -113,7 +117,17 @@ img {
     color: var(--color-gold);
 }
 
-/****** --- Hero --- ******/
+.white {
+    color: var(--color-white);
+}
+
+.gray {
+    opacity: 0.75;
+}
+
+/****** 
+    --- Hero --- 
+******/
 .hero {
     height: 100vh;
     display: flex;
@@ -121,7 +135,6 @@ img {
     justify-content: center;
     margin-bottom: 150px;
     position: relative;
-
 }
 
 /* --- Logos --- */
@@ -182,43 +195,45 @@ img {
     margin: 0 auto;
 }
 
-/* --- Event --- */
 
-.event {
-    margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
+/****** 
+    --- Info Section --- 
+******/
+.info {
+    height: 100vh;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
 }
+
+
+/* --- Event --- */
+/* .event {
+    margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
+} */
 
 .event__title {
-    margin: 0 0 0.4rem;
-    font-family: var(--font-display);
+    font-family: var(--font-display-alt);
     font-weight: 900;
-    font-size: clamp(1.85rem, 7vw, 3rem);
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
-    line-height: 0.95;
-}
-
-.event__the {
-    color: var(--color-white);
+    font-size: 6.25rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
 }
 
 .event__date {
-    margin: 0 0 0.2rem;
     color: var(--color-gold);
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(1.05rem, 3.6vw, 1.5rem);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    font-size: 6rem;
+    letter-spacing: 0.02em;
 }
 
 .event__venue {
-    margin: 0;
     color: var(--color-white);
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(1.05rem, 3.6vw, 1.5rem);
-    letter-spacing: 0.04em;
+    font-size: 5rem;
     text-transform: uppercase;
 }
 
@@ -235,7 +250,7 @@ img {
 }
 
 .field {
-    margin-bottom: 1.35rem;
+    margin-bottom: 0.5rem;
 }
 
 .field__control {
@@ -253,6 +268,7 @@ img {
     font-weight: 400;
     line-height: 1;
     color: var(--color-white);
+    opacity: 0.5;
     pointer-events: none;
     transform-origin: left bottom;
     transition:
@@ -265,7 +281,7 @@ img {
 .field__input {
     display: block;
     width: 100%;
-    padding: 1.25rem 0 0.45rem;
+    padding: 1.25rem 0 0 0;
     border: 0;
     border-bottom: 1px solid var(--color-white);
     border-radius: 0;
@@ -289,7 +305,7 @@ img {
     top: 0;
     bottom: auto;
     font-size: 0.7rem;
-    opacity: 0.9;
+    opacity: 0.5;
 }
 
 .field__input.field__input--invalid {
@@ -305,13 +321,14 @@ img {
 }
 
 .privacy {
-    margin: 0.25rem 0 1.1rem;
+    margin: 0.25rem 0 1rem;
     font-family: var(--font-body);
-    font-size: clamp(0.58rem, 1.5vw, 0.68rem);
-    font-weight: 300;
+    font-size: .75rem;
+    font-weight: 200;
     line-height: 1.45;
     color: var(--color-white);
     text-align: left;
+    font-style: italic;
 }
 
 .privacy__link {
@@ -334,15 +351,29 @@ img {
     align-items: flex-start;
     gap: 0.65rem;
     cursor: pointer;
+    align-items: center;
 }
 
 .consent__input {
     flex-shrink: 0;
-    width: 0.95rem;
-    height: 0.95rem;
-    margin: 0.15rem 0 0;
-    accent-color: var(--color-gold);
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    border: 2px solid var(--color-white);
+    border-radius: 5px;
+    background: transparent;
     cursor: pointer;
+    accent-color: var(--color-gold);
+}
+
+.consent__input:checked {
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23220A09' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' d='M3.5 8.5 6.5 11.5 12.5 4.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.85rem;
 }
 
 .consent__body {
@@ -355,14 +386,19 @@ img {
 .consent__text,
 .consent__note {
     font-family: var(--font-body);
-    font-size: clamp(0.58rem, 1.5vw, 0.68rem);
+    font-size: 1rem;
     font-weight: 300;
     line-height: 1.45;
     color: var(--color-white);
 }
 
 .consent__note {
-    opacity: 0.95;
+    margin: 0.25rem 0 1rem;
+    font-family: var(--font-body);
+    font-size: .75rem;
+    font-weight: 200;
+    line-height: 1.45;
+    font-style: italic;
 }
 
 .submit {
@@ -370,13 +406,13 @@ img {
     width: 100%;
     padding: 0.95rem 1.25rem;
     border: 0;
-    border-radius: 999px;
+    border-radius: 20px;
     background: var(--color-gold);
     color: var(--color-red);
-    font-family: var(--font-display);
+    /* font-family: var(--font-display); */
     font-weight: 800;
-    font-size: clamp(1rem, 2.8vw, 1.2rem);
-    letter-spacing: 0.1em;
+    font-size: 1.25rem;
+    /* letter-spacing: 0.1em; */
     text-transform: uppercase;
     cursor: pointer;
     transition: filter 0.15s ease, transform 0.15s ease;
@@ -415,14 +451,13 @@ img {
 }
 
 /* --- Sale dates --- */
-
 .sales {
     position: relative;
     z-index: 1;
     margin: 0 auto clamp(1.25rem, 3.5vw, 2rem);
-    width: min(100%, 28rem);
-    border-top: 1px solid var(--color-gold);
-    border-bottom: 1px solid var(--color-gold);
+    width: 1075px;
+    border-top: 2px solid var(--color-gold);
+    border-bottom: 2px solid var(--color-gold);
 }
 
 .sales__block {
@@ -430,42 +465,26 @@ img {
 }
 
 .sales__block + .sales__block {
-    border-top: 1px solid var(--color-gold);
+    border-top: 2px solid var(--color-gold);
 }
 
 .sales__label {
     margin: 0 0 0.3rem;
-    font-family: var(--font-display);
+    font-family: var(--font-display-alt);
     font-weight: 400;
-    font-size: clamp(0.62rem, 1.9vw, 0.78rem);
+    font-size: 1.5rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-}
-
-.sales__label--white {
-    color: var(--color-white);
-}
-
-.sales__label--gold {
-    color: var(--color-gold);
 }
 
 .sales__datetime {
     margin: 0;
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: clamp(1.05rem, 3.5vw, 1.5rem);
+    font-size: 4rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     line-height: 1.15;
-}
-
-.sales__datetime--gold {
-    color: var(--color-gold);
-}
-
-.sales__datetime--white {
-    color: var(--color-white);
 }
 
 /* --- Footer band --- */

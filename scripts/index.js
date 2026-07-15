@@ -85,28 +85,21 @@
     }
 
     fields.forEach((field) => {
-        if (!field.input) {
+        if (!field.input || field.isCheckbox) {
             return;
         }
 
-        const eventName = field.isCheckbox ? "change" : "blur";
-        field.input.addEventListener(eventName, () => validateField(field));
-        if (!field.isCheckbox) {
+        syncFilledState(field.input);
+        field.input.addEventListener("focus", () => {
+            field.input.classList.add("is-focused");
+        });
+        field.input.addEventListener("input", () => {
             syncFilledState(field.input);
-            field.input.addEventListener("focus", () => {
-                field.input.classList.add("is-focused");
-            });
-            field.input.addEventListener("input", () => {
-                syncFilledState(field.input);
-                if (field.input.classList.contains("field__input--invalid")) {
-                    validateField(field);
-                }
-            });
-            field.input.addEventListener("blur", () => {
-                field.input.classList.remove("is-focused");
-                syncFilledState(field.input);
-            });
-        }
+        });
+        field.input.addEventListener("blur", () => {
+            field.input.classList.remove("is-focused");
+            syncFilledState(field.input);
+        });
     });
 
     form.addEventListener("submit", (event) => {
