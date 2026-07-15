@@ -105,13 +105,18 @@ img {
     z-index: 1;
     width: min(100%, var(--page-max));
     margin: 0 auto;
-    padding-top: 120px;
+    padding-top: 230px;
     text-align: center;
     overflow: hidden;
 }
 
 .gold {
     color: var(--color-gold);
+}
+
+/****** --- Hero --- ******/
+.hero {
+    padding-bottom: 150px
 }
 
 /* --- Logos --- */
@@ -136,8 +141,8 @@ img {
 .tagline {
     margin: 0 0 clamp(1.5rem, 4vw, 2.25rem);
     font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(0.7rem, 2.1vw, 0.95rem);
+    font-weight: 600;
+    font-size: 3rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     line-height: 1.4;
@@ -145,14 +150,15 @@ img {
 
 .tagline__genres {
     font-weight: 800;
-    letter-spacing: 0.08em;
+    font-size: 3.25rem;
+    font-family: var(--font-display-alt)
 }
 
 .early-access {
     margin: 0;
     font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(0.8rem, 2.4vw, 1.05rem);
+    font-weight: 800;
+    font-size: 3.25rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
 }
@@ -457,10 +463,9 @@ img {
     z-index: 0;
     width: var(--band-width);
     max-width: none;
-    height: calc(var(--band-height) * 0.75);
+    height: calc(var(--band-height));
     margin-top: calc(var(--band-height) * -0.25);
     margin-right: 0;
-    /* Center on the viewport for any --band-width */
     margin-left: calc(50vw - (var(--band-width) / 2));
     overflow: hidden;
 }
@@ -524,17 +529,16 @@ img {
         --page-max: 90vw;
     }
 
-    /* Desktop.png 1920×1461 */
     :root {
         --band-aspect-w: 1920;
-        --band-aspect-h: 1461;
+        --band-aspect-h: 1080;
     }
 
     .logo--jacksons {
-        width: min(100%, 36rem);
+        width: min(100%, 1210px);
     }
 
     .logo--sister {
-        width: min(90%, 26rem);
+        width: min(90%, 550px);
     }
 }
