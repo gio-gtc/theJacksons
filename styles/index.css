@@ -157,7 +157,7 @@ p {
 /* --- Tagline & CTA --- */
 
 .tagline {
-    margin: 0 0 clamp(1.5rem, 4vw, 2.25rem);
+    margin: 0 0 clamp(6rem, 4vw, 2.25rem);
     font-family: var(--font-display);
     font-weight: 600;
     font-size: clamp(0.25rem, 4vw, 3rem);
@@ -184,7 +184,7 @@ p {
 
 .early-access-container {
     position: absolute;
-    bottom: 100px;
+    bottom: clamp(100px, 5vw, 200px);
     left: 0;
     right: 0;
 }
