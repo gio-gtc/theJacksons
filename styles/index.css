@@ -252,7 +252,7 @@ p {
 /* --- Form --- */
 
 .signup {
-    margin-bottom: clamp(6rem, 10vw, 3rem);
+    margin-bottom: 3rem;
 }
 
 .form {
@@ -416,7 +416,7 @@ p {
 .submit {
     display: block;
     width: 100%;
-    padding: 0.95rem 1.25rem;
+    padding: 10px 1.25rem;
     border: 0;
     border-radius: 20px;
     background: var(--color-gold);
@@ -576,7 +576,7 @@ p {
     }
 
     .event {
-
+        padding-bottom: 1.5rem
     }
 
     .event__title {
@@ -595,9 +595,17 @@ p {
     .form {
         width: 100%;
     }
+
+    .privacy {
+        margin: 1rem 0 1.5rem;
+    }
+
+    .consent {
+        margin-bottom: 2.5rem;
+    }
     
     .consent__text {
-        font-size: 1rem;
+        font-size: .85rem;
     }
 }
 
