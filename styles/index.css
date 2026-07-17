@@ -618,7 +618,7 @@ p {
 }
 
 .partner-logos__logo {
-    width: clamp(150px, 15vw, 400px);
+    width: clamp(150px, 12vw, 350px);
     height: auto;
     display: block;
 }
