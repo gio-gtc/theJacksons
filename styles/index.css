@@ -623,6 +623,10 @@ p {
     display: block;
 }
 
+.ticket-master-logo.partner-logos__logo {
+    width: clamp(150px, 10vw, 350px);
+}
+
 /* --- Footer band --- */
 /* Outside .page: 140vw wide; container ~30% shorter, image full-size + clipped */
 .band {
@@ -740,6 +744,10 @@ p {
     .partner-logos {
         flex-direction: column;
         gap: 20px;
+    }
+
+    .partner-logos__logo {
+        width: clamp(150px, 12vw, 350px);
     }
 }
 
