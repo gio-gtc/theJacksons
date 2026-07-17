@@ -618,7 +618,7 @@ p {
 }
 
 .partner-logos__logo {
-    width: clamp(250px, 8vw, 500px);
+    width: clamp(200px, 8vw, 400px);
     height: auto;
     display: block;
 }
@@ -739,6 +739,7 @@ p {
 
     .partner-logos {
         flex-direction: column;
+        gap: 20px;
     }
 }
 
