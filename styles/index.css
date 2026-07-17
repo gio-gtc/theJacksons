@@ -606,6 +606,23 @@ p {
     line-height: 1.15;
 }
 
+.partner-logos {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(3rem, 5vw, 6rem);
+    margin: 0 auto clamp(1.25rem, 3.5vw, 2rem);
+    width: min(100%, 1075px);
+}
+
+.partner-logos__logo {
+    width: clamp(250px, 8vw, 500px);
+    height: auto;
+    display: block;
+}
+
 /* --- Footer band --- */
 /* Outside .page: 140vw wide; container ~30% shorter, image full-size + clipped */
 .band {
@@ -718,6 +735,10 @@ p {
     
     .consent__text {
         font-size: .85rem;
+    }
+
+    .partner-logos {
+        flex-direction: column;
     }
 }
 
