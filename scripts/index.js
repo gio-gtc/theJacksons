@@ -216,7 +216,7 @@
             submitBtn.disabled = true;
         }
 
-        fetch("https://www.YOUR-OTHER-SITE.com/receiver.php", {
+        fetch("https://www.globaltourcreatives.com/api/?post=", {
             method: "POST",
             body: formData
         })
