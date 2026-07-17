@@ -199,21 +199,45 @@
     form.addEventListener("submit", (event) => {
         event.preventDefault();
         applyPhoneMask();
-
+    
         const results = fields.map(validateField);
         if (!results.every(Boolean)) {
             fields.find((field, index) => !results[index] && field.input)?.input.focus();
             return;
         }
+    
+        const formData = new FormData(form);
+        formData.set("phone", iti.getNumber());
+        formData.set("updates", 1);
+        formData.set("source", "ireland.jacksons.live");
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.textContent = "Sending...";
+            submitBtn.disabled = true;
+        }
 
-        console.log({
-            first_name: String(form.elements.namedItem("first_name").value).trim(),
-            last_name: String(form.elements.namedItem("last_name").value).trim(),
-            phone: iti.getNumber(),
-            updates: true,
+        fetch("https://www.YOUR-OTHER-SITE.com/receiver.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json(); 
+        })
+        .then(data => {
+            form.hidden = true;
+            success.hidden = false;
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("Something went wrong saving your information. Please try again.");
+            
+            if (submitBtn) {
+                submitBtn.textContent = "Sign Up";
+                submitBtn.disabled = false;
+            }
         });
-
-        form.hidden = true;
-        success.hidden = false;
     });
 })();
