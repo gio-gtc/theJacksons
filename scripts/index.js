@@ -83,12 +83,12 @@
 
     const fields = [
         {
-            input: form.elements.namedItem("firstName"),
+            input: form.elements.namedItem("first_name"),
             errorId: "first-name-error",
             message: "First name is required.",
         },
         {
-            input: form.elements.namedItem("lastName"),
+            input: form.elements.namedItem("last_name"),
             errorId: "last-name-error",
             message: "Last name is required.",
         },
@@ -207,8 +207,8 @@
         }
 
         console.log({
-            firstName: String(form.elements.namedItem("firstName").value).trim(),
-            lastName: String(form.elements.namedItem("lastName").value).trim(),
+            first_name: String(form.elements.namedItem("first_name").value).trim(),
+            last_name: String(form.elements.namedItem("last_name").value).trim(),
             phone: iti.getNumber(),
             updates: true,
         });
