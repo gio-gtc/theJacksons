@@ -612,7 +612,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: clamp(3rem, 5vw, 6rem);
+    gap: clamp(2.5rem, 5vw, 3rem);
     margin: 0 auto clamp(1.25rem, 3.5vw, 2rem);
     width: min(100%, 1075px);
 }
