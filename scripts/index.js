@@ -1,9 +1,84 @@
 (function () {
     const form = document.getElementById("signup-form");
     const success = document.getElementById("signup-success");
+    const phoneInput = document.getElementById("phone");
 
-    if (!form || !success) {
+    if (!form || !success || !phoneInput || typeof window.intlTelInput !== "function") {
         return;
+    }
+
+    const iti = window.intlTelInput(phoneInput, {
+        onlyCountries: ["ie", "gb"],
+        initialCountry: "ie",
+        countryOrder: ["ie", "gb"],
+        separateDialCode: false,
+        numberDisplayFormat: "NATIONAL",
+        formatAsYouType: false,
+        strictMode: false,
+        countrySearch: false,
+        placeholderNumberPolicy: "OFF",
+    });
+
+    // Patterns: IE `12 123 4567` | UK `12 3456 7891`
+    const MASKS = {
+        ie: { max: 9, groups: [2, 3, 4] },
+        gb: { max: 10, groups: [2, 4, 4] },
+    };
+
+    function getIso2() {
+        // v29 API: getSelectedCountry() (not getSelectedCountryData)
+        const iso2 = String(iti.getSelectedCountry()?.iso2 || "ie").toLowerCase();
+        return iso2 === "gb" ? "gb" : "ie";
+    }
+
+    function formatPhone(value, iso2) {
+        const { max, groups } = MASKS[iso2];
+        let digits = String(value || "").replace(/\D/g, "");
+        if (digits.startsWith("0")) {
+            digits = digits.slice(1);
+        }
+        digits = digits.slice(0, max);
+
+        const parts = [];
+        let i = 0;
+        for (const size of groups) {
+            if (i >= digits.length) {
+                break;
+            }
+            parts.push(digits.slice(i, i + size));
+            i += size;
+        }
+        return parts.join(" ");
+    }
+
+    function applyPhoneMask() {
+        const iso2 = getIso2();
+        const previous = phoneInput.value;
+        const caretDigits = String(previous)
+            .slice(0, phoneInput.selectionStart || 0)
+            .replace(/\D/g, "").length;
+        const formatted = formatPhone(previous, iso2);
+
+        if (formatted === previous) {
+            syncFilledState(phoneInput);
+            return;
+        }
+
+        phoneInput.value = formatted;
+
+        let seen = 0;
+        let caret = formatted.length;
+        for (let i = 0; i < formatted.length; i += 1) {
+            if (/\d/.test(formatted[i])) {
+                seen += 1;
+                if (seen === caretDigits) {
+                    caret = i + 1;
+                    break;
+                }
+            }
+        }
+        phoneInput.setSelectionRange(caret, caret);
+        syncFilledState(phoneInput);
     }
 
     const fields = [
@@ -18,10 +93,10 @@
             message: "Last name is required.",
         },
         {
-            input: form.elements.namedItem("email"),
-            errorId: "email-error",
-            message: "A valid email is required.",
-            validate: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+            input: phoneInput,
+            errorId: "phone-error",
+            message: "A valid phone number is required.",
+            validate: () => iti.isValidNumber(),
         },
         {
             input: form.elements.namedItem("updates"),
@@ -94,34 +169,49 @@
             field.input.classList.add("is-focused");
         });
         field.input.addEventListener("input", () => {
-            syncFilledState(field.input);
+            if (field.input === phoneInput) {
+                applyPhoneMask();
+            } else {
+                syncFilledState(field.input);
+            }
+
+            if (field.input.getAttribute("aria-invalid") === "true") {
+                validateField(field);
+            }
         });
         field.input.addEventListener("blur", () => {
             field.input.classList.remove("is-focused");
-            syncFilledState(field.input);
+            if (field.input === phoneInput) {
+                applyPhoneMask();
+            } else {
+                syncFilledState(field.input);
+            }
         });
+    });
+
+    phoneInput.addEventListener("countrychange", () => {
+        applyPhoneMask();
+        if (phoneInput.getAttribute("aria-invalid") === "true") {
+            validateField(fields.find((field) => field.input === phoneInput));
+        }
     });
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();
+        applyPhoneMask();
 
         const results = fields.map(validateField);
-        const isValid = results.every(Boolean);
-
-        if (!isValid) {
-            const firstInvalid = fields.find((field, index) => !results[index] && field.input);
-            firstInvalid?.input.focus();
+        if (!results.every(Boolean)) {
+            fields.find((field, index) => !results[index] && field.input)?.input.focus();
             return;
         }
 
-        const payload = {
+        console.log({
             firstName: String(form.elements.namedItem("firstName").value).trim(),
             lastName: String(form.elements.namedItem("lastName").value).trim(),
-            email: String(form.elements.namedItem("email").value).trim(),
+            phone: iti.getNumber(),
             updates: true,
-        };
-
-        console.log(payload);
+        });
 
         form.hidden = true;
         success.hidden = false;

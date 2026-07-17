@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@29.1.2/dist/css/intlTelInput.css">
     <meta property="og:title" content="Jacksons Live">
     <!-- <meta property="og:description" content=""> -->
     <meta property="og:image" content="./img/Jackson-Preview.png">
@@ -11,14 +12,18 @@
     <!-- CookieYes -->
     <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/8f9bb2f1e9e11e75627a8c10b7168795/script.js"></script>
 
-    <!-- Google Tag -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1004825983"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QNGG4XC4PM"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'AW-1004825983');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    // Google Analytics 4
+    gtag('config', 'G-QNGG4XC4PM');
+
+    // Google Ads
+    gtag('config', 'AW-1004825983');
     </script>
 
     <!-- Meta Tag -->
@@ -124,24 +129,24 @@
                         <p class="field__error" id="last-name-error" hidden></p>
                     </div>
 
-                    <div class="field">
+                    <div class="field field--phone">
                         <div class="field__control">
                             <input
                                 class="field__input"
-                                type="email"
-                                id="email"
-                                name="email"
-                                autocomplete="email"
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                autocomplete="tel"
                                 placeholder=" "
                                 required
                             >
-                            <label class="field__label" for="email">Email</label>
+                            <label class="field__label" for="phone">Phone</label>
                         </div>
-                        <p class="field__error" id="email-error" hidden></p>
+                        <p class="field__error" id="phone-error" hidden></p>
                     </div>
 
                     <p class="privacy">
-                        By checking this box, you consent to receive emails relating to this presale, including confirmation, access details, ticket reminders and important event information. View our 
+                        By checking this box, you consent to receive texts relating to this presale, including confirmation, access details, ticket reminders and important event information. View our 
                         <a class="privacy__link" href="./privacy-policy.html">Privacy Policy</a>.
                     </p>
 
@@ -158,7 +163,7 @@
                                 <span class="consent__text">I'd like to receive updates about this event, including ticket reminders and event updates.</span>
                             </span>
                         </label>
-                        <span class="consent__note">You can unsubscribe from marketing emails at any time using the link in any email.</span>
+                        <span class="consent__note">You can unsubscribe from marketing texts at any time using the link in any text.</span>
                         <p class="field__error" id="updates-error" hidden></p>
                     </div>
 
@@ -166,7 +171,7 @@
                 </form>
 
                 <p class="success" id="signup-success" hidden>
-                    Thanks - you're signed up for early access. Be on the look out for an e-mail from The Jacksons on Wednesday evening or Thursday morning prior to 10AM with the link to buy tickets. Check your promotional or spam items, it may end up there!
+                    Thanks - you're signed up for early access. Be on the look out for a text from The Jacksons on Wednesday evening or Thursday morning prior to 10AM with the link to buy tickets. Check your promotional or spam items, it may end up there!
                 </p>
             </div>
 
@@ -200,6 +205,7 @@
         </picture>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@29.1.2/dist/js/intlTelInputWithUtils.min.js" defer></script>
     <script src="./scripts/index.js" defer></script>
 </body>
 </html>

@@ -313,7 +313,10 @@ p {
 .field__control:focus-within .field__label,
 .field__input:not(:placeholder-shown) + .field__label,
 .field__input.is-focused + .field__label,
-.field__input.is-filled + .field__label {
+.field__input.is-filled + .field__label,
+.field__control:has(.field__input:not(:placeholder-shown)) .field__label,
+.field__control:has(.field__input.is-focused) .field__label,
+.field__control:has(.field__input.is-filled) .field__label {
     top: 0;
     bottom: auto;
     font-size: 0.7rem;
@@ -321,6 +324,111 @@ p {
 }
 
 .field__input.field__input--invalid {
+    border-bottom-color: #e57373;
+}
+
+/* --- Phone (intl-tel-input) --- */
+
+.field--phone .field__control {
+    --iti-path-flags-1x: url("https://cdn.jsdelivr.net/npm/intl-tel-input@29.1.2/dist/img/flags.webp");
+    --iti-path-flags-2x: url("https://cdn.jsdelivr.net/npm/intl-tel-input@29.1.2/dist/img/flags@2x.webp");
+    --iti-border-color: transparent;
+    --iti-border-width: 0;
+    --iti-hover-color: rgba(241, 200, 122, 0.12);
+    --iti-text-color: var(--color-white);
+    --iti-dropdown-bg: #2a100e;
+    --iti-icon-color: var(--color-white);
+}
+
+.field--phone .iti {
+    width: 100%;
+    display: block;
+}
+
+.field--phone .iti__tel-input {
+    padding-left: 3.25rem;
+}
+
+.field--phone .field__label {
+    left: 3.25rem;
+}
+
+.field--phone .field__control:focus-within .field__label,
+.field--phone .field__control:has(.field__input:not(:placeholder-shown)) .field__label,
+.field--phone .field__control:has(.field__input.is-focused) .field__label,
+.field--phone .field__control:has(.field__input.is-filled) .field__label {
+    left: 0;
+}
+
+.field--phone .iti__country-container {
+    left: 0;
+    right: auto;
+}
+
+.field--phone .iti__selected-country {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 1.25rem 0.35rem 0 0;
+    height: auto;
+    color: var(--color-white);
+}
+
+.field--phone .iti__selected-country:hover,
+.field--phone .iti__selected-country:focus,
+.field--phone .iti__selected-country[aria-expanded="true"] {
+    background: transparent;
+}
+
+.field--phone .iti__selected-country-primary {
+    padding: 0;
+    gap: 0.25rem;
+}
+
+.field--phone .iti__arrow {
+    border: 0;
+    width: 0.45rem;
+    height: 0.45rem;
+    margin: 0;
+    background: transparent;
+    border-right: 1.5px solid var(--color-white);
+    border-bottom: 1.5px solid var(--color-white);
+    transform: rotate(45deg);
+    opacity: 0.7;
+}
+
+.field--phone .iti__arrow--up {
+    transform: rotate(225deg);
+    margin-top: 0.2rem;
+}
+
+.field--phone .iti__dropdown-content {
+    background: #2a100e;
+    border: 1px solid rgba(241, 200, 122, 0.35);
+    border-radius: 0;
+    color: var(--color-white);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.field--phone .iti__country {
+    color: #000;
+}
+
+.iti__country .iti__country-check {
+    color: var(--color-red);
+}
+
+.field--phone .iti__country:hover,
+.field--phone .iti__country:focus,
+.field--phone .iti__country.iti__highlight {
+    background: rgba(241, 200, 122, 0.15);
+}
+
+.field--phone .iti__divider {
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+.field--phone .field__input.field__input--invalid {
     border-bottom-color: #e57373;
 }
 
