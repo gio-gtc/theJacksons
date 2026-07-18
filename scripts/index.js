@@ -215,8 +215,10 @@
             submitBtn.textContent = "Sending...";
             submitBtn.disabled = true;
         }
+        formData.set("source", "ireland.jacksons.live");
+        formData.set("action", "addSubscription");
 
-        fetch("https://www.globaltourcreatives.com/api/?post=", {
+        fetch("https://www.globaltourcreatives.com/gtcforce/ajax/ajax-handler.php", {
             method: "POST",
             body: formData
         })
